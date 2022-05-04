@@ -29,7 +29,15 @@ ifFalse:[
 		callback: [ plant nickname: '' ];
 		with: 'Clear Nickname'.
 ].
-
+html break. 
+html text: 'Notes'.
+html break.
+html form: [  
+	html textArea on: #notes of: plant;
+		value: plant notes.
+	html break.
+	html submitButton.
+]
 ]
 
 { #category : #initialization }
