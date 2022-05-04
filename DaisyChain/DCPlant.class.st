@@ -154,6 +154,16 @@ DCPlant >> soil: anObject [
 ]
 
 { #category : #accessing }
+DCPlant >> toDelete [
+	^ toDelete
+]
+
+{ #category : #accessing }
+DCPlant >> toDelete: anObject [
+	toDelete := anObject
+]
+
+{ #category : #accessing }
 DCPlant >> visible [
 ^ visible
 

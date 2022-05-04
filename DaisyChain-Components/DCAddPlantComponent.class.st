@@ -7,6 +7,26 @@ Class {
 	#category : #'DaisyChain-Components'
 }
 
+{ #category : #accessing }
+DCAddPlantComponent >> addPlant [
+	^ addPlant
+]
+
+{ #category : #accessing }
+DCAddPlantComponent >> addPlant: anObject [
+	addPlant := anObject
+]
+
+{ #category : #accessing }
+DCAddPlantComponent >> checked [
+	^ checked
+]
+
+{ #category : #accessing }
+DCAddPlantComponent >> checked: anObject [
+	checked := anObject
+]
+
 { #category : #initialization }
 DCAddPlantComponent >> initialize [ 
 	super initialize.
