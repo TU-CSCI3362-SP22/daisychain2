@@ -52,46 +52,41 @@ DCScreenComponent >> readWishlistPlants [
 DCScreenComponent >> renderContentOn: html [
 super renderContentOn: html.
 html tbsContainer: [
-html tbsRow showGrid;
-with: [
-html tbsColumn
-extraSmallSize: 12;
-smallSize: 2;
-mediumSize: 4;
-with: [
-html render: (DCCategoriesComponent
-categories: (self blog allCategories)
-postsList: self) ].
-html tbsColumn
-extraSmallSize: 12;
-smallSize: 10;
-mediumSize: 8;
-with: [
-html heading level: 2; with:'Your Plants'.
-self readSelectedPlants do: [ :p |
-html render: (DCPlantComponent new plant: p) ] ].
-html tbsColumn 
-extraSmallSize: 12;
-smallSize: 10;
-mediumSize: 8;
-with: [
-html heading level: 2; with:'Wishlist '.
-self readWishlistPlants do: [ :p |
-	html render: (DCWishlistComponent new plant: p) ] ]].
-html break.
-html break.
-html heading level: 2; with:'Add Plant'.
-html tbsRow showGrid;
+	html tbsRow showGrid; 
 	with: [
+		html tbsColumn
+		extraSmallSize: 12;
+		smallSize: 3;
+		mediumSize: 3;
+		with: [
+			html render: (DCCategoriesComponent
+			categories: (self blog allCategories)
+			postsList: self) ].
+		html tbsColumn
+		extraSmallSize: 12;
+		smallSize: 3;
+		mediumSize: 3;
+		with: [
+			html heading level: 2; with:'Your Plants'.
+			self readSelectedPlants do: [ :p |
+			html render: (DCPlantComponent new plant: p) ] ].
 		html tbsColumn 
 		extraSmallSize: 12;
-		smallSize: 10;
-		mediumSize: 8;
+		smallSize: 3;
+		mediumSize: 3;
 		with: [
+			html heading level: 2; with:'Wishlist '.
+			self readWishlistPlants do: [ :p |
+			html render: (DCWishlistComponent new plant: p) ] ].
+		html tbsColumn 
+		extraSmallSize: 12;
+		smallSize: 3;
+		mediumSize: 3;
+		with: [ 
+			html heading level: 2; with:'Add Plant'. 
 			html render: DCAddPlantComponent new.
-		
-		 ].
-		]
+		].
+	].
 ].
 
 ]
