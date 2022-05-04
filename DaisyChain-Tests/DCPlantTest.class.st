@@ -49,6 +49,14 @@ DCPlantTest >> testIsVisible [
 ]
 
 { #category : #tests }
+DCPlantTest >> testNeedsWatering [
+	plant waterTime: ((DateAndTime now) - (101 seconds)).
+	self assert: plant needsWatering equals: 'Thirst'.
+	plant waterTime: (DateAndTime now).
+	self assert: plant needsWatering equals: 'No thirst.'.
+]
+
+{ #category : #tests }
 DCPlantTest >> testNotVisible [
 	plant visible: true.
 	self assert: plant visible equals: true.

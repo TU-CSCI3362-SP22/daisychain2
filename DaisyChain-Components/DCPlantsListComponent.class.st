@@ -60,7 +60,6 @@ with: [ self basicRenderCategoriesOn: html ]
 DCPlantsListComponent >> renderContentOn: html [
 	super renderContentOn: html.
 	
-
 ]
 
 { #category : #'as yet unclassified' }
@@ -70,4 +69,14 @@ extraSmallSize: 12;
 smallSize: 10;
 mediumSize: 8;
 with: [ self basicRenderPostsOn: html ]
+]
+
+{ #category : #accessing }
+DCPlantsListComponent >> wishlist [
+	^ wishlist
+]
+
+{ #category : #accessing }
+DCPlantsListComponent >> wishlist: anObject [
+	wishlist := anObject
 ]

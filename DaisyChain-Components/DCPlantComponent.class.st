@@ -1,19 +1,45 @@
 Class {
 	#name : #DCPlantComponent,
-	#superclass : #DCPlantDisplayComponent,
+	#superclass : #WAComponent,
+	#instVars : [
+		'plant'
+	],
 	#category : #'DaisyChain-Components'
 }
+
+{ #category : #initialization }
+DCPlantComponent >> description [
+	^ plant description 
+]
+
+{ #category : #initialization }
+DCPlantComponent >> initialize [ 
+	super initialize.
+	plant := DCPlant new
+]
+
+{ #category : #initialization }
+DCPlantComponent >> name [
+	^ plant name
+]
 
 { #category : #accessing }
 DCPlantComponent >> nickname [
 	^ plant nickname
 ]
 
+{ #category : #accessing }
+DCPlantComponent >> plant: aPlant [
+	plant := aPlant
+]
+
 { #category : #initialization }
 DCPlantComponent >> renderContentOn: html [
 html heading level: 2; with: self nickname.
 html heading level: 3; with: self name.
+
 html text: self description.
+
 plant nickname = ''
 ifTrue:[
 html form: [ 
@@ -29,7 +55,9 @@ ifFalse:[
 		callback: [ plant nickname: '' ];
 		with: 'Clear Nickname'.
 ].
-html break. 
+
+html break.
+
 html text: 'Notes'.
 html break.
 html form: [  
@@ -37,7 +65,14 @@ html form: [
 		value: plant notes.
 	html break.
 	html submitButton.
-]
+].
+html break.
+html text: (plant needsWatering).
+html form: [ 
+html submitButton
+	callback: [ plant waterTime: (DateAndTime now) ];
+	with: 'Water'.
+].
 ]
 
 { #category : #initialization }

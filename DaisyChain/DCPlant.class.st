@@ -10,8 +10,8 @@ Class {
 		'health',
 		'visible',
 		'category',
-		'toDelete',
-		'notes'
+		'notes',
+		'waterTime'
 	],
 	#category : #DaisyChain
 }
@@ -84,8 +84,8 @@ super initialize.
 self category: self class unclassifiedTag.
 self visible: true.
 self nickname: ''.
-self toDelete: false.
 self notes: ''.
+self waterTime: DateAndTime now.
 ]
 
 { #category : #testing }
@@ -106,6 +106,11 @@ DCPlant >> name [
 { #category : #accessing }
 DCPlant >> name: anObject [
 	name := anObject
+]
+
+{ #category : #testing }
+DCPlant >> needsWatering [
+	^ (((DateAndTime now) - (self waterTime)) asSeconds > 100) ifTrue: [ 'Thirst' ] ifFalse: [ 'No thirst.' ]
 ]
 
 { #category : #accessing }
@@ -149,16 +154,6 @@ DCPlant >> soil: anObject [
 ]
 
 { #category : #accessing }
-DCPlant >> toDelete [
-	^ toDelete
-]
-
-{ #category : #accessing }
-DCPlant >> toDelete: anObject [
-	toDelete := anObject
-]
-
-{ #category : #accessing }
 DCPlant >> visible [
 ^ visible
 
@@ -178,4 +173,14 @@ DCPlant >> water [
 { #category : #accessing }
 DCPlant >> water: anObject [
 	water := anObject
+]
+
+{ #category : #accessing }
+DCPlant >> waterTime [
+	^ waterTime
+]
+
+{ #category : #accessing }
+DCPlant >> waterTime: anObject [
+	waterTime := anObject
 ]
