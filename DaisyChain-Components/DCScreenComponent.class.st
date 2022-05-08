@@ -55,24 +55,24 @@ html tbsContainer: [
 html tbsRow showGrid;
 with: [
 html tbsColumn
-extraSmallSize: 12;
-smallSize: 2;
-mediumSize: 4;
+extraSmallSize: 3;
+smallSize: 3;
+mediumSize: 3;
 with: [
 html render: (DCCategoriesComponent
 categories: (self blog allCategories)
 postsList: self) ].
 html tbsColumn
-extraSmallSize: 12;
-smallSize: 10;
-mediumSize: 8;
+extraSmallSize: 3;
+smallSize: 3;
+mediumSize: 3;
 with: [
 self readSelectedPlants do: [ :p |
 html render: (DCPlantComponent new plant: p) ] ].
 html tbsColumn 
-extraSmallSize: 12;
-smallSize: 10;
-mediumSize: 8;
+extraSmallSize: 3;
+smallSize: 3;
+mediumSize: 3;
 with: [
 html strong: 'Wishlist'.
 self readWishlistPlants do: [ :p |
@@ -83,9 +83,9 @@ html strong: 'Add Plant'.
 html tbsRow showGrid;
 	with: [
 		html tbsColumn 
-		extraSmallSize: 12;
-		smallSize: 10;
-		mediumSize: 8;
+		extraSmallSize: 3;
+		smallSize: 3;
+		mediumSize: 3;
 		with: [
 			html render: DCAddPlantComponent new.
 		
