@@ -24,6 +24,11 @@ DCPlantDisplayComponent >> name [
 ]
 
 { #category : #accessing }
+DCPlantDisplayComponent >> plant [
+	^ plant
+]
+
+{ #category : #accessing }
 DCPlantDisplayComponent >> plant: aPlant [
 	plant := aPlant
 ]

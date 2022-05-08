@@ -10,6 +10,7 @@ Class {
 		'health',
 		'visible',
 		'category',
+		'toDelete',
 		'notes',
 		'waterTime'
 	],
@@ -84,6 +85,7 @@ super initialize.
 self category: self class unclassifiedTag.
 self visible: true.
 self nickname: ''.
+self toDelete: false.
 self notes: ''.
 self waterTime: DateAndTime now.
 ]
